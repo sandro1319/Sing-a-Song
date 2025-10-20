@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nastavi število rund</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input {
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Izberi število rund</h1>
+    <form id="roundSettingsForm">
+        <div class="form-group">
+            <label for="roundCount">Število rund:</label>
+            <input type="number" id="roundCount" min="1" value="1" required>
+        </div>
+        <button type="submit">Potrdi</button>
+    </form>
+
+    <script>
+        // Obdelava oddaje obrazca
+        document.getElementById('roundSettingsForm').addEventListener('submit', (e) => {
+            e.preventDefault(); // Preprečimo privzeto vedenje obrazca
+
+            const roundCount = parseInt(document.getElementById('roundCount').value);
+            localStorage.setItem('roundCount', roundCount); // Shranimo število rund v Local Storage
+            
+            // Preusmeritev na glavno igro
+            window.location.href = "igra.html";
+        });
+    </script>
+</body>
+</html>
