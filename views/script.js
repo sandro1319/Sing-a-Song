@@ -91,7 +91,7 @@ function getRandomWord() {
     ];
   
     const besede = [
-    'Ljubezen', 'Srce', 'Dojenček', 'ljubica', 'draga', 'nevesta', 'kras', 'Sanje', 'Nebesa', 'Solze', 'Ples', 'Noč', 'Sonce', 'Dež',
+    'Ljubezen', 'Srce', 'Dojenček','Bit', 'Krompir', 'V redu', 'Balon', 'Ljubica', 'Draga', 'Nevesta', 'Kras', 'Sanje', 'Nebesa', 'Solze', 'Ples', 'Noč', 'Sonce', 'Dež',
     'Ogenj', 'Vedno', 'Čarovnija', 'Spomini', 'Osamljen', 'Upanje', 'Zvezda', 'Nasmeh', 'Verjeti', 'Teči',
     'Poljub', 'Ocean', 'Lepo', 'Čas', 'Dom', 'Raj', 'Svoboda', 'Duša', 'Sanje', 'Srečen',
     'Moč', 'Sanje', 'Poletje', 'Zlomljen', 'Bolečina', 'Angel', 'Junak', 'Svetloba',
