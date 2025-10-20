@@ -155,7 +155,7 @@ function getRandomWord() {
     'vojna', 'toplo', 'gledati', 'val', 'pot', 'teden', 'teža', 'orožje', 'kdaj', 'beli', 'kdo',
     'celoten', 'zakaj', 'veter', 'zima', 'želeti', 'ženska', 'beseda', 'delo', 'svet', 'letos',
     'Slovenija', 'svoje', 'nič', 'sam', 'vse', 'kot', 'dan', 'naj', 'spet', 'delati', 'zdaj', 'svet', 'treba', 'kar',
-    'srce', 'sem', 'bom', 'kjer', 'sam', 'čas', 'življenje', 'smo', 'umba', 'več',
+    'srce', 'sem', 'bom', 'kjer', 'sam', 'čas', 'življenje', 'smo', 'ustnice', 'več',
     'vsi', 'vsak', 'med', 'moje', 'gor', 'pesem', 'pot', 'lepo', 'menoj', 'ljubezen',
     'nam', 'refren', 'brez', 'ljubezni', 'oba', 'morda', 'otok', 'nič', 'naprej', 'sera',
     'tam', 'kako', 'saj', 'tja', 'včasih', 'sonce', 'nikdar', 'sva', 'srca', 'čuki',
