@@ -87,7 +87,7 @@ function getRandomWord() {
     'warm', 'was', 'watch', 'water', 'wave', 'way', 'we', 'week', 'weight', 'were', 'west', 'what', 
     'wheel', 'where', 'which', 'white', 'who', 'whole', 'why', 'will', 'wind', 'winter', 'wish', 
     'with', 'woman', 'women', 'wonder', 'word', 'work', 'world', 'would', 'write', 'year', 'yes', 
-    'yesterday', 'yet', 'you', 'young', 'your', 'yourself', 'zero', 'one'
+    'yesterday', 'yet', 'you', 'young', 'your', 'yourself', 'zero', 'one', 'three'
     ];
   
     const besede = [
