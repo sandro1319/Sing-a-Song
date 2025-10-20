@@ -162,7 +162,7 @@ function getRandomWord() {
     'moj', 'tudi', 'poje', 'jaz', 'tika', 'dober', 'noč', 'duša', 'vem', 'srečen',
     'mol', 'vsaka', 'ljudmi', 'reka', 'priti', 'bil', 'nebo', 'pod', 'svojo', 'dekle',
     'pojdi', 'ljudi', 'stara', 'tako', 'prečki', 'lahko', 'bilo', 'Toni', 'enkrat', 'dan',
-    'rad', 'mir', 'drugi', 'vlak', 'zrak', 'nas', 'srcu', 'kje', 'preden', 'doma', 'bela',
+    'rad', 'mir', 'drugi', 'vlak', 'zrak', 'nas', 'srcu', 'kje', 'preden', 'domaf', 'bela',
     'čas', 'prva', 'sreča', 'danes', 'vrti', 'slišati', 'naše', 'vino', 'grozdje', 'trta',
     'brajda', 'pivo', 'šnops', 'čaj', 'kava', 'kruh', 'med', 'jabolko', 'potica', 'Mojca',
     'Ana', 'Marija', 'Maja', 'Lojze', 'Franc', 'Ljubljana', 'Maribor', 'Portorož', 'Bled',
