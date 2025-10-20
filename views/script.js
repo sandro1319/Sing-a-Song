@@ -163,7 +163,7 @@ function getRandomWord() {
     'tam', 'kako', 'saj', 'tja', 'včasih', 'sonce', 'nikdar', 'sva', 'srca', 'čuk',
     'moj', 'tudi', 'poje', 'jaz', 'tika', 'dober', 'noč', 'duša', 'vem', 'srečen',
     'mol', 'vsaka', 'ljudmi', 'reka', 'pridejo', 'bil', 'nebo', 'pod', 'svojo', 'dekle',
-    'pojdi', 'ljudi', 'stara', 'tako', 'prečki', 'lahko', 'bilo', 'toni', 'enkrat', 'dni',
+    'pojdi', 'ljudi', 'stara', 'tako', 'prečki', 'lahko', 'bilo', 'Toni', 'enkrat', 'dan',
     'rad', 'mir', 'drugi', 'vlak', 'zrak', 'nas', 'srcu', 'kje', 'preden', 'doma', 'bela',
     'čas', 'prva', 'sreča', 'danes', 'vrti', 'slišati', 'naše', 'vino', 'grozdje', 'trta',
     'brajda', 'pivo', 'šnops', 'čaj', 'kava', 'kruh', 'med', 'jabolko', 'potica', 'Mojca',
