@@ -1,0 +1,16 @@
+# Ignoriraj vse log datoteke
+*.log
+
+# Začasne datoteke
+*.tmp
+*.bak
+
+# Python cache datoteke
+__pycache__/
+*.pyc
+
+# Node.js odvisnosti
+node_modules/
+
+# Sistemske datoteke
+Thumbs.db
