@@ -1,12 +1,18 @@
-// Seznam naključnih besed
-const words = [
-    "Jabolko", "Avto", "Knjiga", "Miza", "Pes", "Računalnik", 
-    "Telefon", "Hiša", "Sonce", "Cvet", "Gozd", "Kolo", 
-    "Reka", "Voda", "Zvezda", "Morje", "Šola", "Letalo", "Hrib", "Vrata"
-];
 
-// Posodobljen seznam naključnih besed
-/*const words = [
+// Pridobimo število rund iz Local Storage
+const totalRounds = parseInt(localStorage.getItem('roundCount')) || 1;
+
+// Poišči elemente
+const wordElement = document.getElementById("word");
+const nadpisElement = document.getElementById("nadpis");
+const stetjeElement = document.getElementById("stetje");
+
+// Stanje za sledenje prvega klika
+let firstClick = true;
+
+// Funkcija za prikaz naključne besede
+function getRandomWord() {
+    const words = [
     'Love', 'Heart', 'Baby', 'Dreams', 'Heaven', 'Tears', 'Dance', 'Night', 'Sun', 'Rain', 
     'Fire', 'Forever', 'Magic', 'Memories', 'Lonely', 'Hope', 'Star', 'Smile', 'Believe', 'Run', 
     'Kiss', 'Ocean', 'Beautiful', 'Time', 'Home', 'Paradise', 'Freedom', 'Soul', 'Dreams', 'Happy', 
@@ -82,40 +88,121 @@ const words = [
     'wheel', 'where', 'which', 'white', 'who', 'whole', 'why', 'will', 'wind', 'winter', 'wish', 
     'with', 'woman', 'women', 'wonder', 'word', 'work', 'world', 'would', 'write', 'year', 'yes', 
     'yesterday', 'yet', 'you', 'young', 'your', 'yourself', 'zero'
-];*/
-
-// Pridobimo število rund iz Local Storage
-const totalRounds = parseInt(localStorage.getItem('roundCount')) || 1;
-
-// Poišči elemente
-const wordElement = document.getElementById("word");
-const nadpisElement = document.getElementById("nadpis");
-const stetjeElement = document.getElementById("stetje");
-
-// Stanje za sledenje prvega klika
-let firstClick = true;
-
-// Funkcija za prikaz naključne besede
-function getRandomWord() {
-    const words = [
-        "Jabolko", "Avto", "Knjiga", "Miza", "Pes", "Računalnik",
-        "Telefon", "Hiša", "Sonce", "Cvet", "Gozd", "Kolo",
-        "Reka", "Voda", "Zvezda", "Morje", "Šola", "Letalo", "Hrib", "Vrata"
     ];
-    const randomIndex = Math.floor(Math.random() * words.length);
-    return words[randomIndex];
+  
+    const besede = [
+    'Ljubezen', 'Srce', 'Dojenček', 'ljubica', 'draga', 'nevesta', 'kras', 'Sanje', 'Nebesa', 'Solze', 'Ples', 'Noč', 'Sonce', 'Dež',
+    'Ogenj', 'Vedno', 'Čarovnija', 'Spomini', 'Osamljen', 'Upanje', 'Zvezda', 'Nasmeh', 'Verjeti', 'Teči',
+    'Poljub', 'Ocean', 'Lepo', 'Čas', 'Dom', 'Raj', 'Svoboda', 'Duša', 'Sanje', 'Srečen',
+    'Moč', 'Sanje', 'Poletje', 'Zlomljen', 'Bolečina', 'Angel', 'Junak', 'Svetloba',
+    'Jutri', 'Živ', 'Vera', 'Skupaj', 'Držati', 'Pasti', 'Slava', 'Rešiti', 'Oprosti',
+    'Skrivnost', 'Dihati', 'Leteti', 'Zbogom', 'Spomini', 'Včeraj', 'Sprememba', 'Senca', 'Vzpon', 'Bolečina', 'Šepet', 'Tišina', 'Razdalja',
+    'Strah', 'Čakanje', 'Svetloba', 'Izgubljen', 'Ocean', 'Sonce', 'Teža', 'Uspavanka', 'Čudež', 'Živ',
+    'Zapomniti', 'Skrivnost', 'Zaklad', 'Diamant', 'Utrip', 'Elektrika', 'Funk', 'Ritem', 'Melodija',
+    'Groove', 'Zabava', 'Klub', 'Plesna tla', 'Visoko', 'Pijan', 'Seks', 'Poželenje', 'Želja', 'Odvisnost',
+    'Greh', 'Slab', 'Težava', 'Nevaren', 'Upornik', 'Divji', 'Rock (slo)', 'Kitara', 'Bobni',
+    'Bas', 'Pevec', 'Skupina', 'Glasba', 'Zvok', 'Utrip', 'Harmonija', 'Most', 'Žalost', 'Žalovanje',
+    'Solze', 'Jezen', 'Srčna bolečina', 'Osamljenost', 'Obžalovanje', 'Pogrešati', 'Razdalja', 'Slovo', 'Razhod',
+    'Izdati', 'Varanje', 'Ljubosumje', 'Maščevanje', 'Svoboda', 'Osvoboditev', 'Pogum',
+    'Moč', 'Uspeh', 'Denar', 'Slava', 'Slava', 'Ambicija', 'Zagon', 'Delo', 'Žrtev', 'Strast',
+    'Umetnost', 'Domišljija', 'Fantazija', 'Pobeg', 'Pustolovščina', 'Pot', 'Bog', 'Vera',
+    'Mir', 'Harmonija', 'Sreča', 'Galaksija', 'Simfonija', 'Kolo', 'Ura', 'Mavrica',
+    'Nevihta', 'Pirat', 'Pastir', 'Kozolec', 'Kavč', 'Satelit', 'Kemija', 'Knjiga', 'Vafelj',
+    'Slap', 'Svetilnik', 'Telefon', 'Snežak', 'Led', 'Nahrbtnik', 'Helikopter',
+    'Pohodništvo', 'Košarka', 'Vlak', 'Piščal(ka)', 'Lubenica', 'Akvarij', 'Včeraj', 'Odrešitev',
+    'Sanje', 'Vijolično', 'Nor', 'Lestenec', 'Predstavljati', 'Limonada',
+    'Pozdrav', 'Valjanje', 'Strupeno', 'Formacija', 'Simfonija', 'Ognjemet', 'Živijo', 'Rjovenje', 'Angeli',
+    'Zombi', 'Preživel', 'Borec', 'Dinamika', 'Revolucija', 'Nedelja', 'Sladko', 'Rojen', 'Spremembe',
+    'Zatresti', 'Mesečina', 'Diamanti', 'Ogledala', 'Svoboda', 'Groza',
+    'Vročina', 'Črno', 'Grenko', 'Električno', 'Ogenj', 'Teža', 'Voda',
+    'Odsev', 'Sanje', 'Mesečina', 'Čudež', 'Živ', 'Metulj',
+    'Pošast', 'Raj', 'Tišina', 'Svoboda', 'Izklop', 'Nevihta', 'Držati', 'Vedno', 'Grom', 
+    'Simfonija', 'Za vedno', 'Revolucija', 'Ubežnik', 'Nekdo', 'Zvezde', 'Vožnja', 'Duh',
+    'Orkan', 'Vžig', 'Spomin', 'Satelit', 'Iskra', 'Brezčasno', 'Mrak', 'Ustaviti', 
+    'o', 'dejanje', 'pravzaprav', 'dodati', 'po', 'spet', 'proti', 'starost', 'pred', 'zrak', 
+    'vse', 'tudi', 'vedno', 'sem', 'med', 'nek', 'in', 'žival', 'drugi', 'odgovor', 'pojavi se', 
+    'so', 'območje', 'kot', 'vprašati', 'pri', 'nazaj', 'žoga', 'osnova', 'biti', 'lepota', 
+    'ker', 'postati', 'postelja', 'bil', 'pred', 'začel', 'začeti', 'za', 'najboljši', 'boljši', 'med', 
+    'velik', 'ptica', 'črna', 'modra', 'čoln', 'telo', 'knjiga', 'oba', 'dno', 'škatla', 
+    'fant', 'prinese', 'zgraditi', 'zaseden', 'vendar', 'z', 'klic', 'pride', 'lahko', 'avto', 'skrb',
+    'skrbno', 'nosi', 'center', 'zagotoviti', 'spremeni', 'pregledati', 'otrok', 'mesto', 'razred', 
+    'jasno', 'blizu', 'hladno', 'barva', 'pridi', 'pogosto', 'pogoj', 'vsebovati', 'nadaljevati', 'nadzor', 'pokrivati', 'ustvariti', 'prečkati', 
+    'križ', 'množica', 'kultura', 'temno', 'dan', 'smrt', 'odločiti', 'globoko', 'razviti', 'rana', 
+    'odkriti', 'razprava', 'daljša razdalja', 'narediti', 'storiti', 'vrata', 'nariši', 'sanjariti', 
+    'pijača', 'vozi', 'suho', 'zemlja', 'lažje', 'rob', 'izobraževati', 'učinek', 'napor', 'konec', 
+    'sovražnik', 'uživati', 'dovolj', 'zavarovati', 'skupaj', 'osvetliti', 'dogodek', 
+    'vsi', 'ravno', 'vsak', 'primer', 'zajeti', 'drugi', 'vsi', 'obraz', 'dejstva', 'padlo', 
+    'družina', 'daleč', 'hitro', 'očetov', 'stran', 'se počutijo', 'polje', 'bitka', 'končno', 'najti', 
+    'prijatelj', 'od', 'zgoraj', 'prepričan', 'poln', 'smešno', 'igra', 'dal', 'cilj', 'dober', 
+    'vlada', 'velik', 'odrasel', 'dvigniti', 'ozemlje', 'imeti', 'tu', 'njegov', 'pošteno', 'zgodovina',
+    'dom', 'človek', 'uradno', 'ura', 'milijon', 'glasba', 'narava', 'nov', 'naslednji', 'dobrodelnost', 
+    'starši', 'osebnost', 'policija', 'možnost', 'stvar', 'ljudje', 'resnica', 'vloga', 'rasti', 'počitek',
+    'pozdravljen', 'majhen', 'postati', 'različen', 'umetnost', 'slika', 'nastanek', 'ekologija', 'beseda', 
+    'umetnost', 'zaslon', 'način', 'priložnost', 'nekako', 'ravno', 'pamet', 'spomin', 'zvest', 
+    'nevaren', 'postati', 'nikoli', 'več', 'dovoliti', 'tema', 'zadnji del', 'telo', 'čudovit', 'meja', 
+    'širina', 'vrsta', 'tih', 'preizkus', 'nenadoma', 'nevihta', 'odlično', 'veliko', 'močan', 
+    'poseben', 'zemlja', 'jasno', 'glasba', 'ustvarjati', 'niti', 'topel', 'priložnost', 'uspešno', 
+    'umiriti', 'prevod', 'veter', 'prijazen', 'vesolje', 'resničen', 'kraj', 'prostor', 'zgodba',
+    'dejstvo', 'čakanje', 'želja', 'krvavo', 'divje', 'okrasitev', 'padec', 'zvezdna pot', 'jokati', 'ponavljati',
+    'domačnost', 'skrivnost', 'ustvariti', 'pogledati', 'dolg', 'zasluga', 'bit', 
+    'prinesen', 'skrbeti', 'nogomet', 'načelo', 'nemogoče', 'navidezno', 'deliti', 'udeležiti se', 
+    'doseči', 'meja', 'zadovoljstvo', 'ponos', 'klicati', 'rezervacija', 'bližina', 'tisti',
+    'pravilo', 'teči', 'reči', 'enako', 'videti', 'šola', 'morje', 'zima', 'peti', 'sedeti', 'spanje',
+    'počasi', 'majhen', 'sneg', 'nekaj', 'pesem', 'zvok', 'vesolje', 'poseben', 'pomlad', 'stati',
+    'oba', 'začetek', 'ostati', 'korak', 'zgodba', 'ulica', 'močan', 'učiti',
+    'sonce', 'sistem', 'vzeti', 'govoriti', 'učiti', 'povedati', 'test', 'čas', 'drevo', 'poskusiti',
+    'resnica', 'obrniti', 'dva', 'razumeti', 'uporabiti', 'glas', 'čakati', 'hoditi', 'želeti',
+    'vojna', 'toplo', 'gledati', 'val', 'pot', 'teden', 'teža', 'orožje', 'kdaj', 'beli', 'kdo',
+    'celoten', 'zakaj', 'veter', 'zima', 'želeti', 'ženska', 'beseda', 'delo', 'svet', 'letos',
+    'Slovenija', 'svoje', 'nič', 'sam', 'vse', 'kot', 'dan', 'naj', 'spet', 'delat', 'zdaj', 'svet', 'treba', 'kar',
+    'srce', 'sem', 'bom', 'kjer', 'sam', 'čas', 'življenje', 'smo', 'umba', 'več',
+    'vsi', 'vsak', 'med', 'moje', 'gor', 'pesem', 'pot', 'lepo', 'menoj', 'ljubezen',
+    'nam', 'refren', 'brez', 'ljubezni', 'oba', 'morda', 'otok', 'nič', 'naprej', 'sera',
+    'tam', 'kako', 'saj', 'tja', 'včasih', 'sonce', 'nikdar', 'sva', 'srca', 'čuki',
+    'moj', 'tudi', 'poje', 'jaz', 'tika', 'dober', 'noč', 'duša', 'vem', 'srečen',
+    'mol', 'vsaka', 'ljudmi', 'reka', 'pridejo', 'bil', 'nebo', 'pod', 'svojo', 'dekle',
+    'pojdi', 'ljudi', 'stara', 'tako', 'prečki', 'lahko', 'bilo', 'toni', 'enkrat', 'dni',
+    'rad', 'mir', 'drugi', 'vlak', 'zrak', 'nas', 'srcu', 'kje', 'preden', 'doma', 'bela',
+    'časi', 'prva', 'sreča', 'danes', 'vrti', 'sliši', 'naše', 'vino', 'grozdje', 'trta',
+    'brajda', 'pivo', 'šnops', 'čaj', 'kava', 'kruh', 'med', 'jabolko', 'potica', 'Mojca',
+    'Ana', 'Marija', 'Maja', 'Lojze', 'Franc', 'Ljubljana', 'Maribor', 'Portorož', 'Bled',
+    'Velenje', 'Slovenija', 'Amerika', 'Italija', 'Avstrija', 'Nemčija', 'Gorenjska', 'Štajerska',
+    'Primorska', 'Prekmurje', 'Dolenjska', 'Notranjska', 'Koroška', 'Ptuj'
+    ];
+    let izbran_jezik = localStorage.getItem('languageChoice');
+    if (izbran_jezik !== null) {
+        izbran_jezik = parseInt(izbran_jezik); // Pretvori v številko
+    } else {
+        izbran_jezik = 0; // Privzeta vrednost, če jezik ni nastavljen
+    }
+
+    if (izbran_jezik === 0) {
+        const randomIndex = Math.floor(Math.random() * words.length);
+        return words[randomIndex].toLowerCase();
+    } else if (izbran_jezik === 1) {
+        const randomIndex = Math.floor(Math.random() * besede.length);
+        return besede[randomIndex].toLowerCase();
+    } else if (izbran_jezik === 2) {
+        let izmenjava_jezikov = Math.floor(Math.random() * 2);
+        if (izmenjava_jezikov === 0) {
+            const randomIndex = Math.floor(Math.random() * words.length);
+            return words[randomIndex].toLowerCase();
+        } else {
+            const randomIndex = Math.floor(Math.random() * besede.length);
+            return besede[randomIndex].toLowerCase();
+        }
+    }
 }
 
 // Štetje iger
 let currentRound = 0;
 
-// Funkcija za odštevanje
+// Funkcija za odštevanje pred prikazom besede
 function countdown(callback) {
     let count = 3;
     nadpisElement.textContent = `Odštevanje: ${count}`;
     wordElement.textContent = "..."; // Nadomestno sporočilo
     wordElement.style.pointerEvents = "none"; // Onemogoči klik med odštevanjem
-    
     const interval = setInterval(() => {
         count--;
         if (count > 0) {
@@ -132,6 +219,7 @@ wordElement.addEventListener("click", () => {
     if (currentRound >= totalRounds) {
         nadpisElement.textContent = "Igra je končana!";
         wordElement.style.pointerEvents = "none"; // Onemogoči nadaljnje klike
+        document.getElementById("play-again-btn").style.display = "block";
         return;
     }
 
@@ -144,8 +232,13 @@ wordElement.addEventListener("click", () => {
     countdown(() => {
         currentRound++;
         nadpisElement.textContent = "Računalnik je izbral besedo ...";
-        stetjeElement.textContent = `Runda: ${currentRound}/${totalRounds}`;
+        stetjeElement.textContent = `Krog: ${currentRound}/${totalRounds}`;
         wordElement.textContent = getRandomWord(); // Prikaži novo besedo
         wordElement.style.pointerEvents = "auto"; // Omogoči klik
     });
+});
+
+document.getElementById("play-again-btn").addEventListener("click", () => {
+    // Preusmeri uporabnika na stran index.html
+    window.location.href = "index.html";
 });

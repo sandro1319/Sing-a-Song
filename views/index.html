@@ -16,31 +16,50 @@
             display: block;
             font-weight: bold;
         }
-        input {
+        input[type="number"] {
             padding: 5px;
-            width: 100%;
+            margin-top: 5px;
+            width: 20%;
             box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
         }
         button {
             padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
+            background-color: lightgrey;
+            color: black;
             border: none;
             cursor: pointer;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: grey;
+            color: white;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        input[type="checkbox"] {
+            margin-right: 2px;
         }
     </style>
 </head>
 <body>
-    <h1>Izberi število rund</h1>
+    <h1>Izberi število krogov in jezik</h1>
     <form id="roundSettingsForm">
         <div class="form-group">
-            <label for="roundCount">Število rund:</label>
+            <label for="roundCount">Število krogov:</label>
             <input type="number" id="roundCount" min="1" value="1" required>
         </div>
+        <div class="form-group">
+            <label>Izberi jezik:</label>
+            <input type="checkbox" id="languageEng" value="0"> Angleški
+            <input type="checkbox" id="languageSlj" value="1"> Slovenski
+        </div>
         <button type="submit">Potrdi</button>
+        <p class="error" id="errorMessage" style="display: none;">Izberite vsaj en jezik.</p>
     </form>
 
     <script>
@@ -49,7 +68,30 @@
             e.preventDefault(); // Preprečimo privzeto vedenje obrazca
 
             const roundCount = parseInt(document.getElementById('roundCount').value);
+            const isEngChecked = document.getElementById('languageEng').checked;
+            const isSljChecked = document.getElementById('languageSlj').checked;
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Preverjanje izbire jezika
+            if (!isEngChecked && !isSljChecked) {
+                errorMessage.style.display = 'block';
+                return; // Prekinemo izvajanje, če ni izbran noben jezik
+            }
+            errorMessage.style.display = 'none'; // Skrijemo sporočilo o napaki
+
+            // Določanje shranjene vrednosti jezika
+            let languageChoice;
+            if (isEngChecked && isSljChecked) {
+                languageChoice = 2; // Oboje
+            } else if (isEngChecked) {
+                languageChoice = 0; // Angleški
+            } else {
+                languageChoice = 1; // Slovenski
+            }
+
+            // Shranimo podatke
             localStorage.setItem('roundCount', roundCount); // Shranimo število rund v Local Storage
+            localStorage.setItem('languageChoice', languageChoice); // Shranimo izbiro jezika v Local Storage
             
             // Preusmeritev na glavno igro
             window.location.href = "igra.html";

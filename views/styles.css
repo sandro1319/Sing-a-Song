@@ -22,7 +22,7 @@ body, html {
 #word {
     font-size: 2.5em;
     font-weight: bold;
-    color: #333;
+    color: black;
     cursor: pointer;
     padding: 20px;
     height: 1em; /* Prilagodi višino glede na velikost gumba */
@@ -31,6 +31,30 @@ body, html {
     background: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, background 0.2s;
+}
+
+#play-again-btn {
+    display: none; /* Gumb je privzeto skrit */
+    margin: auto;
+    padding: 15px 30px; /* Velikost gumba */
+    font-size: 18px; /* Velikost besedila */
+    background-color: gray; /* Obarvaj gumb v rdečo */
+    color: white; /* Barva besedila */
+    border: none; /* Odstrani obrobe */
+    border-radius: 5px; /* Zaobljeni robovi */
+    cursor: pointer; /* Kazalec se spremeni v roko */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Senca, ki doda globino */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animacija za spremembo barve in gibanje */
+}
+
+#play-again-btn:hover {
+    background-color: black; /* Spremeni barvo ob prehodu miške */
+    transform: scale(1.1); /* Povečaj gumb ob prehodu miške */
+}
+
+#play-again-btn:active {
+    background-color: black; /* Barva gumba, ko je kliknjen */
+    transform: scale(0.95); /* Rahlo zmanjša gumb, ko je kliknjen */
 }
 
 #word:hover {
