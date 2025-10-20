@@ -14,3 +14,7 @@ node_modules/
 
 # Sistemske datoteke
 Thumbs.db
+
+# Varnost
+.env
+config/secret.json
